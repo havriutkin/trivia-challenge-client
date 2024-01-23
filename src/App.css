@@ -1,38 +1,35 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hollow-text-white {
+  -webkit-text-stroke: 2px white; 
+  color: transparent;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hollow-text-black {
+  -webkit-text-stroke: 2px black;
+  color: transparent;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.gradient-button {
+  background-image: linear-gradient(90deg, #832eff, #fe4ff2);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.gradient-button-reverse {
+  background-image: linear-gradient(90deg, #fe4ff2, #832eff);
 }
 
-.App-link {
-  color: #61dafb;
+@font-face {
+  font-family: 'TrendSansOne';
+  src: url('../public/fonts/Latinotype\ -\ TrendSansOne.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+  font-family: 'ProximaNovaExtraCondensedBold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../public//fonts/Mark\ Simonson\ \ Proxima\ Nova\ Condensed\ Bold\ TheFontsMaster.com.woff') format('woff');
 }
