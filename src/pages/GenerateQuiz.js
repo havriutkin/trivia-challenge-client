@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import { requestQuestions } from '../services/interactionAPI';
 import { pageVariants } from "../utils/variants";
+
+import { numberOptions, difficulties, categories } from "../utils/options";
 
 import Button from "../components/Button";
 import CardForm from "../components/CardForm";
-
-import { numberOptions, difficulties, categories } from "../utils/options";
+import { QuizContext } from "../providers/quizProvider";
 
 
 function GenerateQuiz(){
@@ -18,6 +18,7 @@ function GenerateQuiz(){
         topic: 'General Knowledge',
         difficulty: 'easy'
     });
+    const { getQuiz } = useContext(QuizContext);
 
     const handleDifficultyChange = (event) => {
         const newDifficulty = event.target.value.toLowerCase();
@@ -48,15 +49,11 @@ function GenerateQuiz(){
     }
 
     const handleClick = async () => {
-        const data = await requestQuestions(formData.numberOfQuestions, formData.topic, formData.difficulty);
-        if (data.length > 0) {
-            navigate('/quiz', { state: {
-                questions: data,
-                topic: formData.topic,
-                difficulty: formData.difficulty
-            }});
-        } else {
-            alert('Error occured! Try choosing different options.');
+        try {
+            await getQuiz(formData.numberOfQuestions, formData.topic, formData.difficulty);
+            navigate('/quiz');
+        } catch {
+            alert('Error occured. Try different settings!');
         }
     }
 

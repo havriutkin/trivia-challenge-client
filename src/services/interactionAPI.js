@@ -59,7 +59,7 @@ export const validateAuth = async () => {
 }
 
 /* ---------- Quizzes ---------- */
-export const requestQuestions = async (numberOfQuestions, topic, difficulty) => {
+export const requestQuiz = async (numberOfQuestions, topic, difficulty) => {
     const baseUrl = 'http://localhost:4000/api';
     const queryObject = {
         numberOfQuestions: numberOfQuestions,
@@ -69,10 +69,10 @@ export const requestQuestions = async (numberOfQuestions, topic, difficulty) => 
     const queryStr = new URLSearchParams(queryObject).toString();
 
     const data = await fetch(baseUrl + '/quiz/generate?' + queryStr).then(res => res.json());
-    return data.questions;
+    return data.quiz;
 }
 
-export const postQuiz = async({difficulty, questionsTotal, rightAnswers, topic}) => {
+export const postQuizResult = async(difficulty, questionsTotal, rightAnswers, topic) => {
     const url = 'http://localhost:4000/api/quiz/add';
     const settings = {
         method: 'POST',
