@@ -2,30 +2,36 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 
 import { QuizContext } from "../providers/quizProvider";
+import { postQuizResult } from "../services/interactionAPI";
 
 import Question from "../components/Question";
 
 function Quiz(){
+    // eslint-disable-next-line
     const [points, setPoints] = useState(0);
     const [current, setCurrent] = useState(0);
     const [quizFinished, setQuizFinished] = useState(false);
-    const { quizData, sendQuizResult, resetQuizData, setRightAnswers } = useContext(QuizContext);
+    const { quizData, setRightAnswers } = useContext(QuizContext);
     const navigate = useNavigate();    
 
     useEffect(() => {
-        if (!quizFinished) return;
-        try {
-            setRightAnswers(points);
-            sendQuizResult(quizData.difficulty, quizData.questions.length, points, quizData.topic)
-            navigate('/results')
-        } catch {
-            alert('Something went wrong! Sorry :(');
-            resetQuizData().then(_ => navigate('/'));
+        const sendQuiz = async () => {
+            if (!quizFinished) return;    
+            try {
+                await postQuizResult(quizData.difficulty, quizData.questions.length, points, quizData.topic);
+                setRightAnswers(points);
+                navigate('/results');
+            } catch(err) {
+                alert('Sever error occured when trying to save your result :(');
+                navigate('/');
+            }
         }
-    }, [quizFinished, points, quizData, resetQuizData, sendQuizResult, setRightAnswers, navigate]);
+        sendQuiz();
+    }, [quizFinished, points, quizData, setRightAnswers, navigate])
 
-    const handleQuestionSubmit = (answer) => {
-        if (answer === quizData.questions[current].correctAnswer) setPoints(prev => prev + 1);
+    const handleQuestionSubmit = async (answer) => {
+        if (answer === quizData.questions[current].correctAnswer)
+            setPoints(prev => prev + 1);
         (current === quizData.questions.length - 1) ? setQuizFinished(true) : setCurrent(prev => prev + 1);
     }
 

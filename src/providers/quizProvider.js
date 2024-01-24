@@ -1,21 +1,12 @@
 import { createContext, useState } from "react";
-import { requestQuiz, postQuizResult } from "../services/interactionAPI";
+import { requestQuiz } from "../services/interactionAPI";
 import { shuffleArray } from "../utils/helpers";
 
 export const QuizContext = createContext();
 
 export function QuizProvider({ children }){
-    const [quizData, setQuizData] = useState({ isSaved: false, rightAnswers: 0 });
-
-    const resetQuizData = async () => {
-        setQuizData({ isSaved: false, rightAnswers: 0 });
-    }
-
-    const setRightAnswers = async (rightAnswers) => {
-        setQuizData(prev => {
-            return {...prev, rightAnswers: rightAnswers};
-        })
-    }
+    const [quizData, setQuizData] = useState({});
+    const [rightAnswers, setRightAnswers] = useState(0)
 
     const getQuiz = async (numberOfQuestions, topic, difficulty) => {
         try {
@@ -42,19 +33,8 @@ export function QuizProvider({ children }){
         }
     }
 
-    const sendQuizResult = async (difficulty, questionsTotal, rightAnswers, topic) => {
-        try {
-            await postQuizResult(difficulty, questionsTotal, rightAnswers, topic);
-            setQuizData(prev => {
-                return {...prev, isSaved: true}
-            });
-        } catch {
-            throw new Error('Error occured while posting quiz result.')
-        }
-    }
-
     return (
-        <QuizContext.Provider value={{ quizData, resetQuizData, getQuiz, sendQuizResult, setRightAnswers }}>
+        <QuizContext.Provider value={{ quizData, setQuizData, rightAnswers, setRightAnswers, getQuiz }}>
             {children}
         </QuizContext.Provider>
     )

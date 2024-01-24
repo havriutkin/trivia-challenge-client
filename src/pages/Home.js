@@ -6,6 +6,7 @@ import { pageVariants } from '../utils/variants';
 
 function Home(){
     const navigate = useNavigate();
+
     // Define unique animations for each image
     const floating1 = { y: ["30%", "0%"], x: ["20%", "0%"] };
     const floating2 = { y: ["20%", "0%"], x: ["-30%", "0%"] };
