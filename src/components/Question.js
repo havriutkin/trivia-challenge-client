@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
 import { decodeHTMLEntities } from "../utils/helpers";
-import { pageVariants } from "../utils/variants";
+import { questionVariants } from "../utils/variants";
 
 import Button from "./Button";
 import AnswerButton from "./AnswerButton";
@@ -27,7 +27,7 @@ function Question({className, number, question, options, onSubmit}){
 
     return(
         <motion.div 
-            variants={pageVariants}
+            variants={questionVariants}
             initial="initial"
             animate="final"
             exit="out"

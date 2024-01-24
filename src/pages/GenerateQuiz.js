@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -18,7 +18,7 @@ function GenerateQuiz(){
         topic: 'General Knowledge',
         difficulty: 'easy'
     });
-    const { getQuiz, resetQuizData } = useContext(QuizContext);
+    const { getQuiz } = useContext(QuizContext);
     
     const handleDifficultyChange = (event) => {
         const newDifficulty = event.target.value.toLowerCase();
