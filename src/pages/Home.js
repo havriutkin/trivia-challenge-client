@@ -31,28 +31,28 @@ function Home(){
             className="w-screen h-screen flex flex-col justify-center items-center">
             {/* Background images */}
             <motion.img src="./shapes/Asterik.webp" alt="background shape" 
-                className="hidden
+                className="hidden md:block
                     md:absolute top-10 right-10 w-1/3 h-auto z-0"
                 animate={floating1} transition={transition}/>
             <motion.img src="./shapes/Cube.webp" alt="background shape" 
-                className="hidden
+                className="hidden md:block
                     md:absolute top-10 left-10 w-1/3 h-auto z-0"
                 animate={floating4} transition={transition}/>
             <motion.img src="./shapes/HexaSphere.webp" alt="background shape" 
-                className="hidden
-                    md:absolute bottom-30 right-10 w-1/3 h-auto z-0"
+                className="hidden md:block
+                    md:absolute bottom-20 right-10 w-1/3 h-auto z-0"
                 animate={floating3} transition={transition}/>
             <motion.img src="./shapes/Ring.webp" alt="background shape" 
-                className="hidden
-                    md:absolute top-50 left-10 w-1/3 h-auto z-0"
+                className="hidden md:block
+                    md:absolute bottom-20 left-10 w-1/3 h-auto z-0"
                 animate={floating2} transition={transition}/>
 
 
             <div className="flex flex-col text-center font-custom-main z-10">
-                <h1 className="text-2xl hollow-text-white">TEST YOUR KNOWLEDGE</h1>
-                <h3 className="text-sm text-dark-pink">GENERATE AND COMPLETE QUIZZES</h3>
+                <h1 className="hollow-text-white text-2xl md:text-6xl">TEST YOUR KNOWLEDGE</h1>
+                <h3 className="text-dark-pink text-sm md:text-2xl">GENERATE AND COMPLETE QUIZZES</h3>
             </div>
-            <Button className="mt-20 z-10" text="GENERATE QUIZ" onClick={handleClick}/>
+            <Button className="mt-20 z-10 text-base md:text-xl" text="GENERATE QUIZ" onClick={handleClick}/>
         </motion.div>
     );
 }

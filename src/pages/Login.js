@@ -68,8 +68,8 @@ function Login(){
             animate="final"
             exit="out"
             className="w-screen h-screen flex flex-col justify-around items-center">
-            <div className="h-2/3 flex flex-col items-center justify-around border p-10">
-                <h1 className="font-custom-main text-2xl text-white">LOG IN</h1>
+            <div className="h-2/3 w-1/2 flex flex-col items-center justify-around border p-10">
+                <h1 className="font-custom-main text-2xl md:text-4xl text-white">LOG IN</h1>
                 <form className="h-full flex flex-col items-center justify-around">
                     <InputField fieldName="username" fieldPlaceholder="Others will see it!"
                                 fieldValue={formData.username} 
@@ -79,7 +79,7 @@ function Login(){
                                 fieldValue={formData.password}
                                 fieldWarning={warnings.password}
                                 onChange={e => handleChange('password', e.target.value)}/>
-                    <Button className="w-full text-sm" text="LOGIN" onClick={handleSubmit}/>
+                    <Button className="w-full text-sm md:text-lg" text="LOGIN" onClick={handleSubmit}/>
                 </form>
             </div>
         </motion.div>

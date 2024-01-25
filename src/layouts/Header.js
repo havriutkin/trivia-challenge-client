@@ -11,12 +11,14 @@ function Header(){
                         text-white text-center
                         border-b 
                         ">
-            <h3 className="font-custom-main w-1/3 
-                        text-sm">
+            <h3 className="font-custom-main 
+                        w-1/3 text-sm 
+                        md:w-1/3 md:text-xl">
                 Trivia Challenge
             </h3>
             <nav className="w-1/2 inline-flex items-center justify-around
-                        font-custom-main text-xs">
+                        font-custom-main text-xs
+                        md:text-lg">
                 <Link className="transition-colors duration-200 hover:text-gray-400" to="/">Home</Link>
                 {
                 isLoggedIn ?

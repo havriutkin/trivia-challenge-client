@@ -27,8 +27,8 @@ function Profile(){
             <div className="h-2/3 border p-5 flex flex-col justify-around items-center">
                 <div className="flex justify-between items-center">
                     <div className="w-full h-full m-3 flex flex-col items-start justify-around text-white">
-                        <h1 className="font-custom-main text-3xl">{userData?.username}</h1>
-                        <p className="font-custom-main text-base">Member since: {userData?.joinDate ? userData?.joinDate.slice(0, 10) : ''}</p>
+                        <h1 className="font-custom-main text-3xl md:text-4xl">{userData?.username}</h1>
+                        <p className="font-custom-main text-base md:text-lg">Member since: {userData?.joinDate ? userData?.joinDate.slice(0, 10) : ''}</p>
                         <UserStatistics userId={userData?.id} className="w-full mt-3 h-min text-left"/>
                     </div>
                 </div>

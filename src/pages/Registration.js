@@ -61,8 +61,8 @@ function Registration(){
             animate="final"
             exit="out"
             className="w-screen h-screen flex flex-col justify-around items-center">
-            <div className="h-2/3 flex flex-col items-center justify-around border p-10">
-                <h1 className="font-custom-main text-2xl text-white">CREATE ACCOUNT</h1>
+            <div className="h-2/3 w-1/2 flex flex-col items-center justify-around border p-10">
+                <h1 className="font-custom-main w-max text-2xl md:text-4xl text-white">CREATE ACCOUNT</h1>
                 <form className="mt-2 h-full flex flex-col items-center justify-around">
                     <InputField fieldName="username" fieldPlaceholder="Others will see it!"
                                 fieldValue={formData.username} 
@@ -76,7 +76,7 @@ function Registration(){
                                 fieldValue={formData.email}
                                 fieldWarning={warnings.email}
                                 onChange={e => handleChange('email', e.target.value)}/>
-                    <Button className="w-2/3 text-sm" text="CREATE" onClick={handleSubmit}/>
+                    <Button className="w-full text-sm md:text-lg" text="CREATE" onClick={handleSubmit}/>
                 </form>
             </div>
         </motion.div>

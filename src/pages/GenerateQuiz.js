@@ -65,7 +65,7 @@ function GenerateQuiz(){
             exit="out"
             transition={{duration: 1}}
             className="w-screen h-screen flex flex-col justify-between items-center">
-            <h1 className="mt-10 text-3xl hollow-text-white">SET UP QUIZ</h1>
+            <h1 className="mt-10 text-3xl md:text-6xl hollow-text-white">SET UP QUIZ</h1>
             <div className="w-full h-1/2 flex flex-col justify-around items-center">
                 <CardForm className="w-1/2 h-full m-3" formName="Number Of Questions" 
                         options={numberOptions} onChange={handleAmountChange}/>
@@ -74,7 +74,7 @@ function GenerateQuiz(){
                 <CardForm className="w-1/2 h-full m-3" formName="Difficulty" 
                         options={difficulties} onChange={handleDifficultyChange}/>
             </div>
-            <Button className="mb-20" text="START QUIZ" onClick={handleClick}/>
+            <Button className="mb-20 md:text-xl" text="START QUIZ" onClick={handleClick}/>
         </motion.div>
     );
 }

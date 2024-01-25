@@ -4,7 +4,7 @@ function InputField({fieldName, fieldPlaceholder, fieldValue, fieldWarning, onCh
 
     return(
         <div className="flex flex-col text-left">
-            <label className="w-full mb-2 font-custom-main text-sm text-white flex items-center" 
+            <label className="w-full mb-2 font-custom-main text-sm md:text-lg text-white flex items-center" 
                 htmlFor={fieldName}>
                 <p>{fieldName}</p>
                 {fieldWarning && <ContextWarning className='ml-1' text={fieldWarning}/>}
