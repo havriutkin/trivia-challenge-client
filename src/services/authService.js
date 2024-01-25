@@ -1,6 +1,8 @@
+const baseUrl = process.env.REACT_APP_BASE_API;
+
 /* ---------- Auth ---------- */
 export const createAccount = async (userData) => {
-    const url = 'http://localhost:4000/api/auth/register';
+    const url = `${baseUrl}/auth/register`;
     const json = JSON.stringify(userData);
 
     const settings = {
@@ -17,7 +19,7 @@ export const createAccount = async (userData) => {
 }
 
 export const login = async (userData) => {
-    const url = 'http://localhost:4000/api/auth/login';
+    const url = `${baseUrl}/auth/login`;
     const json = JSON.stringify(userData)
 
     const settings = {
@@ -41,14 +43,14 @@ export const login = async (userData) => {
 }
 
 export const logout = async () => {
-    const url = 'http://localhost:4000/api/auth/logout';
+    const url = `${baseUrl}/auth/logout`;
     const res = await fetch(url, {method: 'POST', credentials: "include"})
                         .catch(err => {throw new Error('Server Error.')});
     return res.ok;
 }
 
 export const validateAuth = async () => {
-    const url = 'http://localhost:4000/api/auth/validate';
+    const url = `${baseUrl}/auth/validate`;
     try {
         const response = await fetch(url, {credentials: "include"})
                                 .catch(err => {throw new Error('Server Error.')});

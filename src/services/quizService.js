@@ -1,6 +1,7 @@
+const baseUrl = process.env.REACT_APP_BASE_API;
+
 /* ---------- Quizzes ---------- */
 export const requestQuiz = async (numberOfQuestions, topic, difficulty) => {
-    const baseUrl = 'http://localhost:4000/api';
     const queryObject = {
         numberOfQuestions: numberOfQuestions,
         topic: topic,
@@ -13,7 +14,7 @@ export const requestQuiz = async (numberOfQuestions, topic, difficulty) => {
 }
 
 export const postQuizResult = async(difficulty, questionsTotal, rightAnswers, topic) => {
-    const url = 'http://localhost:4000/api/quiz/add';
+    const url = `${baseUrl}/quiz/add`;
     const settings = {
         method: 'POST',
         headers: {
