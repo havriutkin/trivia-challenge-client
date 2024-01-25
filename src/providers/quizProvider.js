@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { requestQuiz } from "../services/interactionAPI";
+import { requestQuiz } from "../services/quizService";
 import { shuffleArray } from "../utils/helpers";
 
 export const QuizContext = createContext();

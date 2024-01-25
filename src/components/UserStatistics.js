@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { requestStatistics } from "../services/interactionAPI";
+import { requestStatistics } from "../services/userService";
 
 /*
 "data": {

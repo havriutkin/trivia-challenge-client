@@ -7,7 +7,7 @@ import Button from "../components/Button"
 import InputField from "../components/InputField"
 
 import { signInFormConstraints } from "../utils/validation.config"
-import { createAccount } from "../services/interactionAPI"
+import { createAccount } from "../services/authService"
 import { pageVariants } from "../utils/variants"
 
 function Registration(){

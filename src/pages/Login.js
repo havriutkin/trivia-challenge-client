@@ -5,7 +5,7 @@ import validate from "validate.js"
 
 import { pageVariants } from "../utils/variants";
 import { logInFormConstaints } from "../utils/validation.config";
-import { login } from "../services/interactionAPI";
+import { login } from "../services/authService";
 
 import InputField from "../components/InputField";
 import Button from "../components/Button";

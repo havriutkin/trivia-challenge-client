@@ -3,7 +3,7 @@ import { useNavigate, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import { QuizContext } from "../providers/quizProvider";
-import { postQuizResult } from "../services/interactionAPI";
+import { postQuizResult } from "../services/quizService";
 
 import { feedbackVariants } from "../utils/variants";
 
