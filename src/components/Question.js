@@ -21,8 +21,10 @@ function Question({className, number, question, options, onSubmit}){
     }
 
     const handleSubmit = (event) => {
-        setActiveAnswer(prev => -1);
-        onSubmit(options[activeAnswer]);
+        if (activeAnswer !== -1) {
+            setActiveAnswer(prev => -1);
+            onSubmit(options[activeAnswer]);
+        }
     }
 
     return(

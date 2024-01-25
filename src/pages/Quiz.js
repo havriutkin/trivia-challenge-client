@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -10,6 +10,7 @@ import { feedbackVariants } from "../utils/variants";
 import Question from "../components/Question";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { RxCrossCircled } from "react-icons/rx";
+import { AuthContext } from "../providers/authProvider";
 
 function Quiz(){
     // eslint-disable-next-line
@@ -18,11 +19,17 @@ function Quiz(){
     const [answerFeedback, setAnswerFeedback] = useState(null);
     const [quizFinished, setQuizFinished] = useState(false);
     const { quizData, setRightAnswers } = useContext(QuizContext);
+    const { isLoggedIn } = useContext(AuthContext);
     const navigate = useNavigate();    
 
     useEffect(() => {
         const sendQuiz = async () => {
+            console.log(isLoggedIn);
             if (!quizFinished) return;    
+            if (!isLoggedIn) {
+                navigate('/results');
+                return;
+            }
             try {
                 await postQuizResult(quizData.difficulty, quizData.questions.length, points, quizData.topic);
                 setRightAnswers(points);
@@ -33,7 +40,7 @@ function Quiz(){
             }
         }
         sendQuiz();
-    }, [quizFinished, points, quizData, setRightAnswers, navigate])
+    }, [quizFinished, points, quizData, setRightAnswers, isLoggedIn, navigate])
 
     const handleQuestionSubmit = async (answer) => {
         let isCorrect = (answer === quizData.questions[current].correctAnswer)

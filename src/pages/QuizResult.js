@@ -38,7 +38,7 @@ function QuizResult(){
                 {
                     userData ? 
                         <p className="font-custom-main text-white text-xl">Your Result Was Saved</p> : 
-                        <Button text="SAVE RESULT" onClick={handleSaveClick}/>
+                        <Button text="CREATE ACCOUNT TO SAVE YOUR RESULTS" onClick={handleSaveClick}/>
                 }
                 <Button className="mt-5" text="RETURN TO HOME PAGE" onClick={handleHomeButtonClick}/>
             </div>
