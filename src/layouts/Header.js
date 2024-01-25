@@ -13,7 +13,7 @@ function Header(){
                         ">
             <h3 className="font-custom-main 
                         w-1/3 text-sm 
-                        md:w-1/3 md:text-xl">
+                        md:w-1/3 md:text-xl lg:text-2xl">
                 Trivia Challenge
             </h3>
             <nav className="w-1/2 inline-flex items-center justify-around

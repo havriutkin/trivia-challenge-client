@@ -66,12 +66,12 @@ function GenerateQuiz(){
             transition={{duration: 1}}
             className="w-screen h-screen flex flex-col justify-between items-center">
             <h1 className="mt-10 text-3xl md:text-6xl hollow-text-white">SET UP QUIZ</h1>
-            <div className="w-full h-1/2 flex flex-col justify-around items-center">
-                <CardForm className="w-1/2 h-full m-3" formName="Number Of Questions" 
+            <div className="w-full h-1/2 flex flex-col lg:flex-row justify-around items-center">
+                <CardForm className="w-1/2 lg:w-1/6 h-full lg:h-1/2 m-3" formName="Number Of Questions" 
                         options={numberOptions} onChange={handleAmountChange}/>
-                <CardForm className="w-1/2 h-full m-3" formName="Category" 
+                <CardForm className="w-1/2 lg:w-1/6 h-full lg:h-1/2 m-3" formName="Category" 
                         options={categories} onChange={handleCategoryChange}/>
-                <CardForm className="w-1/2 h-full m-3" formName="Difficulty" 
+                <CardForm className="w-1/2 lg:w-1/6 h-full lg:h-1/2 m-3" formName="Difficulty" 
                         options={difficulties} onChange={handleDifficultyChange}/>
             </div>
             <Button className="mb-20 md:text-xl" text="START QUIZ" onClick={handleClick}/>

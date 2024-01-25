@@ -31,10 +31,10 @@ function QuizResult(){
             exit="out"
             className="w-screen h-screen flex flex-col justify-around items-center">
             <h1 className="font-custom-main hollow-text-white text-3xl md:text-6xl ">RESULTS</h1>
-            <h2 className="font-custom-main text-white text-xl md:text-2xl">
+            <h2 className="font-custom-main text-white text-xl md:text-2xl lg:text-3xl">
                 {rightAnswers} out of {quizData.questions?.length || 'Error'}
             </h2>
-            <div className="mt-10 w-full flex flex-col items-center justify-around">
+            <div className="mt-10 w-full lg:w-2/3 flex flex-col items-center justify-around">
                 {
                     userData ? 
                         <p className="font-custom-main text-white text-base">Your Result Was Saved</p> : 

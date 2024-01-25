@@ -63,8 +63,8 @@ function Quiz(){
             exit="hidden"
             className="w-screen h-screen flex flex-col justify-around items-center">
             {answerFeedback === 'correct' ? 
-                <IoCheckmarkCircle className="text-green-600 text-3xl"/> :
-                <RxCrossCircled className="text-red-600 text-3xl"/>}
+                <IoCheckmarkCircle className="text-green-600 text-3xl lg:text-7xl"/> :
+                <RxCrossCircled className="text-red-600 text-3xl lg:text-7xl"/>}
         </motion.div>
     );
 
