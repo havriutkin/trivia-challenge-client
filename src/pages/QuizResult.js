@@ -30,17 +30,17 @@ function QuizResult(){
             animate="final"
             exit="out"
             className="w-screen h-screen flex flex-col justify-around items-center">
-            <h1 className="font-custom-main text-5xl hollow-text-white">RESULTS</h1>
-            <h2 className="font-custom-main text-white text-3xl">
-                {rightAnswers} out of {quizData?.questions.length}
+            <h1 className="font-custom-main text-3xl hollow-text-white">RESULTS</h1>
+            <h2 className="font-custom-main text-white text-xl">
+                {rightAnswers} out of {quizData.questions?.length || 'Error'}
             </h2>
             <div className="mt-10 w-full flex flex-col items-center justify-around">
                 {
                     userData ? 
-                        <p className="font-custom-main text-white text-xl">Your Result Was Saved</p> : 
-                        <Button text="CREATE ACCOUNT TO SAVE YOUR RESULTS" onClick={handleSaveClick}/>
+                        <p className="font-custom-main text-white text-base">Your Result Was Saved</p> : 
+                        <Button className="w-2/3 text-sm" text="CREATE ACCOUNT TO SAVE YOUR RESULTS" onClick={handleSaveClick}/>
                 }
-                <Button className="mt-5" text="RETURN TO HOME PAGE" onClick={handleHomeButtonClick}/>
+                <Button className="mt-5 w-2/3 text-sm" text="RETURN TO HOME PAGE" onClick={handleHomeButtonClick}/>
             </div>
         </motion.div>
     )

@@ -24,9 +24,9 @@ function Quiz(){
 
     useEffect(() => {
         const sendQuiz = async () => {
-            console.log(isLoggedIn);
             if (!quizFinished) return;    
             if (!isLoggedIn) {
+                setRightAnswers(points);
                 navigate('/results');
                 return;
             }

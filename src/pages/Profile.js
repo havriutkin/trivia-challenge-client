@@ -26,9 +26,9 @@ function Profile(){
             className="w-screen h-screen flex flex-col justify-around items-center">
             <div className="h-2/3 border p-5 flex flex-col justify-around items-center">
                 <div className="flex justify-between items-center">
-                    <div className="w-full h-full m-3 flex flex-col items-center justify-around text-white">
+                    <div className="w-full h-full m-3 flex flex-col items-start justify-around text-white">
                         <h1 className="font-custom-main text-3xl">{userData?.username}</h1>
-                        <p className="font-custom-main">Member since: {userData?.joinDate ? userData?.joinDate.slice(0, 10) : ''}</p>
+                        <p className="font-custom-main text-base">Member since: {userData?.joinDate ? userData?.joinDate.slice(0, 10) : ''}</p>
                         <UserStatistics userId={userData?.id} className="w-full mt-3 h-min text-left"/>
                     </div>
                 </div>

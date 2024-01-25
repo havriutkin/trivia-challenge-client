@@ -35,11 +35,13 @@ function Question({className, number, question, options, onSubmit}){
             exit="out"
             className={className}>
             <div className="w-full h-full flex flex-col items-center justify-around">
-                <h2 className="w-2/3 text-white text-center font-custom-main text-3xl">{decodeHTMLEntities(question)}</h2>
-                <div className="w-full flex items-center justify-around">
+                <h2 className="w-2/3 text-white text-center font-custom-main text-base">{decodeHTMLEntities(question)}</h2>
+                <div className="w-full
+                                grid grid-cols-2 gap-5 place-items-center
+                                md:flex md:items-center md:justify-around">
                     {options.map((el, i) => {
                         return <AnswerButton 
-                                    className={`w-1/6`}
+                                    className={`w-2/3 text-sm`}
                                     key={i} index={i} text={el} 
                                     isActive={i === activeAnswer} 
                                     onClick={handleClick}/>
@@ -47,7 +49,7 @@ function Question({className, number, question, options, onSubmit}){
                 </div>
                 <div className="w-screen flex flex-col items-center justify-center">
                     <h4 className="font-custom-main text-white text-sm">{number}</h4>
-                    <Button text={buttonText} onClick={handleSubmit}/>
+                    <Button className="text-xs" text={buttonText} onClick={handleSubmit}/>
                 </div>
             </div>
         </motion.div>

@@ -1,22 +1,6 @@
 import { useEffect, useState } from "react";
 import { requestStatistics } from "../services/userService";
 
-/*
-"data": {
-    "totalQuizes": 1,
-    "totalQuiestions": 10,
-    "easyQuestions": 0,
-    "mediumQuestions": 0,
-    "hardQuestions": 0,
-    "totalRightAnswers": 9,
-    "easyRightAnswers": 0,
-    "mediumRightAnswers": 0,
-    "hardRightAnswers": 0,
-    "topics": {
-        "General Knowledge": 1
-    }
-}*/
-
 function UserStatistics({userId, className}){
     const [statistics, setStatistics] = useState({});
 
@@ -25,7 +9,7 @@ function UserStatistics({userId, className}){
     }, [userId])
 
     return(
-        <div className={"font-custom-main text-white overflow-x-hidden overflow-y-scroll"  + className}>
+        <div className={"font-custom-main text-white text-sm overflow-x-hidden overflow-y-scroll"  + className}>
             <p>{`Total quizes: ${statistics?.totalQuizes || 0}`}</p>
             <p>{`Total questions: ${statistics?.totalQuiestions || 0}`}</p>
             <p>{`Easy questions: ${statistics?.easyQuestions || 0}`}</p>
